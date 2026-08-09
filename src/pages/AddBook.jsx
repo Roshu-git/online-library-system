@@ -15,7 +15,7 @@ export default function AddBook() {
     const handleSubmit = (e) => { 
         e.preventDefault(); 
         dispatch(addBook(form)); 
-        
+
         // Redirect to the selected category after adding the book
         navigate(`/books/${form.category}`); 
     }; 
