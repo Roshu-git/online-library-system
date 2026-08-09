@@ -1,3 +1,5 @@
+// Display detailed information for a selected book
+
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -5,6 +7,7 @@ export default function BookDetails() {
   const { id } = useParams();
   const books = useSelector(state => state.books);
 
+  // Find the book using the route parameter
   const book = books.find(b => b.id === Number(id));
 
   if (!book) return <p className="p-6">Book not found</p>;
@@ -23,6 +26,7 @@ export default function BookDetails() {
           ⭐ Rating: {book.rating}
         </p>
 
+{/* // Return to the browse page of the same category */}
         <Link
           to={`/books/${book.category}`}
           className="text-blue-600 font-medium"

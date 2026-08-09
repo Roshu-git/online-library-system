@@ -1,3 +1,5 @@
+// Browse books by category and search by title or author
+
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -8,6 +10,7 @@ export default function BrowseBooks() {
   const books = useSelector(state => state.books);
   const [search, setSearch] = useState('');
 
+// Filter books based on selected category and search text
   const filtered = books.filter(book => {
     const matchCategory = book.category === category;
     const matchSearch =
@@ -23,6 +26,7 @@ export default function BrowseBooks() {
         {category} Books
       </h1>
 
+{/* // Search books by title or author */}
       <input
         type="text"
         placeholder="Search by title or author"

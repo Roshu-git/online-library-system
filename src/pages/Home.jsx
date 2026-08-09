@@ -1,3 +1,5 @@
+// Home page with welcome message, categories, and popular books
+
 import { useSelector } from 'react-redux';
 import BookCard from '../components/BookCard';
 import { Link } from 'react-router-dom';
@@ -5,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const books = useSelector(state => state.books);
 
+  // List of available book categories
   const categories = ['Fiction', 'Non-Fiction', 'Sci-Fi'];
 
   return (
@@ -18,6 +21,7 @@ export default function Home() {
         </p>
       </div>
 
+{/* // Display a few popular books on the home page */}
       <h2 className="text-2xl font-semibold mb-4">Categories</h2>
       <div className="flex gap-4 mb-10 flex-wrap">
         {categories.map(cat => (

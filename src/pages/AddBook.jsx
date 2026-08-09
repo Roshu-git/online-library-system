@@ -1,15 +1,22 @@
+// Form page for adding a new book to the library
+
 import { useState } from 'react'; 
 import { useDispatch } from 'react-redux'; 
 import { addBook } from '../redux/booksSlice'; 
 import { useNavigate } from 'react-router-dom'; 
 
 export default function AddBook() { 
+    // State for form fields 
+    const [form, setForm] = useState({ title: '', author: '', category: 'fiction', description: '', rating: 5, });
     const dispatch = useDispatch(); 
-    const navigate = useNavigate(); 
-    const [form, setForm] = useState({ title: '', author: '', category: 'fiction', description: '', rating: 5, }); 
+    const navigate = useNavigate();
+
+    // Submit the form and add the book to Redux state 
     const handleSubmit = (e) => { 
         e.preventDefault(); 
         dispatch(addBook(form)); 
+        
+        // Redirect to the selected category after adding the book
         navigate(`/books/${form.category}`); 
     }; 
     return (
